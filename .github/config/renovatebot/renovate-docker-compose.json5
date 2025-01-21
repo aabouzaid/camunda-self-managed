@@ -33,32 +33,52 @@
     {
       groupName: "camunda-docker-compose-8.3",
       addLabels: ["version/8.3", "deps/docker-compose"],
-      matchFileNames: ["docker-compose/versions/camunda-8.3/**"],
+      matchFileNames: [
+        "docker-compose/versions/camunda-8.3/**",
+        "docker-compose/versions/camunda-8.3/.**"
+      ],
       matchUpdateTypes: ["patch"],
+      matchManagers: ["regex"],
     },
     {
       groupName: "camunda-docker-compose-8.4",
       addLabels: ["version/8.4", "deps/docker-compose"],
-      matchFileNames: ["docker-compose/versions/camunda-8.4/**"],
+      matchFileNames: [
+        "docker-compose/versions/camunda-8.4/**",
+        "docker-compose/versions/camunda-8.4/.**"
+      ],
       matchUpdateTypes: ["patch"],
+      matchManagers: ["regex"],
     },
     {
       groupName: "camunda-docker-compose-8.5",
       addLabels: ["version/8.5", "deps/docker-compose"],
-      matchFileNames: ["docker-compose/versions/camunda-8.5/**"],
+      matchFileNames: [
+        "docker-compose/versions/camunda-8.5/**",
+        "docker-compose/versions/camunda-8.5/.**"
+      ],
       matchUpdateTypes: ["patch"],
+      matchManagers: ["regex"],
     },
     {
       groupName: "camunda-docker-compose-8.6",
       addLabels: ["version/8.6", "deps/docker-compose"],
-      matchFileNames: ["docker-compose/versions/camunda-8.6/**"],
+      matchFileNames: [
+        "docker-compose/versions/camunda-8.6/**",
+        "docker-compose/versions/camunda-8.6/.**"
+      ],
       matchUpdateTypes: ["patch"],
+      matchManagers: ["regex"],
     },
     {
       groupName: "camunda-docker-compose-alpha",
       addLabels: ["version/8.7", "deps/docker-compose"],
-      matchFileNames: ["docker-compose/versions/camunda-alpha/**"],
+      matchFileNames: [
+        "docker-compose/versions/camunda-alpha/**",
+        "docker-compose/versions/camunda-alpha/.**"
+      ],
       matchUpdateTypes: ["patch", "minor"],
+      matchManagers: ["regex"],
     },
     // End of minor cycle chores.
 
@@ -68,10 +88,10 @@
       automerge: false,
     },
   ],
-
   customManagers: [
     {
       customType: "regex",
+      fileMatch: [".env"],
       datasourceTemplate: "docker",
       matchStrings: [
         "# renovate: datasource=docker depName=(?<depName>[^\\s]+?)(?: (lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: registryUrl=(?<registryUrl>[^\\s]+?))?\\s*?(\\S+)=(?<currentValue>\\S+)",
