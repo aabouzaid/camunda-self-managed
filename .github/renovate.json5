@@ -3,11 +3,11 @@
   // Keep the order, last item in the array wins.
   // https://docs.renovatebot.com/key-concepts/presets/#how-to-use-presets
   extends: [
-    "config:recommended",
-    "github>camunda/camunda-self-managed//.github/config/renovatebot/renovate-docker-compose.json5",
-    "github>camunda/camunda-self-managed//.github/config/renovatebot/renovate-aws-marketplace.json5",
-    "github>camunda/camunda-self-managed//.github/config/renovatebot/renovate-github-actions.json5",
-    "github>camunda/camunda-self-managed//.github/config/renovatebot/renovate-main.json5",
+    // "config:recommended",
+    "github>aabouzaid/camunda-self-managed//.github/config/renovatebot/renovate-docker-compose.json5",
+    "github>aabouzaid/camunda-self-managed//.github/config/renovatebot/renovate-aws-marketplace.json5",
+    "github>aabouzaid/camunda-self-managed//.github/config/renovatebot/renovate-github-actions.json5",
+    "github>aabouzaid/camunda-self-managed//.github/config/renovatebot/renovate-main.json5",
     ":semanticCommitTypeAll(deps)",
   ],
 }
