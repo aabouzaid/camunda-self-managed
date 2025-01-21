@@ -68,10 +68,10 @@
       automerge: false,
     },
   ],
-
   customManagers: [
     {
       customType: "regex",
+      fileMatch: [".env"],
       datasourceTemplate: "docker",
       matchStrings: [
         "# renovate: datasource=docker depName=(?<depName>[^\\s]+?)(?: (lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: registryUrl=(?<registryUrl>[^\\s]+?))?\\s*?(\\S+)=(?<currentValue>\\S+)",
