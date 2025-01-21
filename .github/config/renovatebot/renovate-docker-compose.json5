@@ -1,7 +1,11 @@
 {
   description: "Keeps Docker Compose up to date",
-  patch: {
-    enabled: true,
+  "separateMinorPatch": true,
+  "minor": {
+    "enabled": true
+  },
+  "patch": {
+    "enabled": true
   },
   packageRules: [
     // Disable Minor and Major updates by default.
@@ -10,7 +14,7 @@
       matchFileNames: [
         "docker-compose/versions/camunda-8*/.**",
         "docker-compose/versions/camunda-8*/**",
-        ".env",
+        "**/.env",
       ],
       matchUpdateTypes: ["minor", "major"],
       matchManagers: ["regex"],
@@ -31,6 +35,16 @@
       semanticCommitScope: "docker-compose",
       matchFileNames: ["docker-compose/versions/**"],
       matchManagers: ["regex"],
+    },
+
+    {
+      enabled: false,
+      groupName: "camunda-docker-compose-x",
+      matchFileNames: [
+        "docker-compose/**",
+      ],
+      matchManagers: ["regex"],
+      matchUpdateTypes: ["minor", "major"],
     },
 
     //
@@ -103,6 +117,8 @@
       datasourceTemplate: "docker",
       matchStrings: [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>[^\\s]+?)(?: (lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: registryUrl=(?<registryUrl>[^\\s]+?))?\\s*?(\\S+)=(?<currentValue>\\S+)",
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>[^\\s]+?)(?: (lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: registryUrl=(?<registryUrl>[^\\s]+?))?(?:\\s*\n)?(?<key>\\S+)=(?<currentValue>\\S+)",
+        "# renovate: datasource=docker depName=(?<depName>[^\\s]+?)(?: (lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: registryUrl=(?<registryUrl>[^\\s]+?))?(?:\\s*\n)?(?<key>\\S+)=(?<currentValue>\\S+)",
       ],
       versioningTemplate: "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
     }
