@@ -87,6 +87,11 @@
       matchNewValue: "/.*alpha[0-9]*-rc[0-9]*/",
       automerge: false,
     },
+    {
+      "groupName": "regex-docker-dependencies",
+      "matchManagers": ["regex"],
+      "matchUpdateTypes": ["patch"]
+    }
   ],
   customManagers: [
     {
