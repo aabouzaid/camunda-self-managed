@@ -2,7 +2,11 @@
   dependencyDashboard: true,
   extends: ["config:recommended", "helpers:pinGitHubActionDigests"],
   labels: ["dependencies"],
-  patch: {
-    enabled: true,
+  "separateMinorPatch": true,
+  "minor": {
+    "enabled": true
+  },
+  "patch": {
+    "enabled": true
   },
 }
